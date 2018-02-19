@@ -25,7 +25,14 @@ document.onkeyup = function(event) {
 
 
 	var userGuess = event.key;
-	guessesSoFar.push(" " + userGuess);	
+	console.log(guessesSoFar);
+	var checkLetter = guessesSoFar.indexOf(userGuess);
+	console.log(checkLetter);
+	if (checkLetter == -1) {
+		
+	
+
+	guessesSoFar.push(userGuess);	
 
 
 
@@ -34,6 +41,7 @@ document.onkeyup = function(event) {
 	}
 	else {
 		alert("That's not a letter!");
+		guessesSoFar.push(userGuess) = false;
 	}
 
 
@@ -52,7 +60,7 @@ document.onkeyup = function(event) {
 		losses++; 
 		alert("You are NOT Psychic! Try again!"); 
 		guessesLeft = 9; 
-		guessesSoFar.length = 0; 
+		guessesSoFar.length = cdc0; 
 		computerTurn++;
 	}
 
@@ -62,7 +70,10 @@ document.onkeyup = function(event) {
 	document.getElementById("Wins").innerHTML = "Wins: " + wins;
 	document.getElementById("Losses").innerHTML = "Losses: " + losses;
 	document.getElementById("Left").innerHTML = "Guesses Left: " + guessesLeft;
-	document.getElementById("SoFar").innerHTML = "Your Guesses so far: " + guessesSoFar + "  ";
+	document.getElementById("SoFar").innerHTML = "Your Guesses so far: " + guessesSoFar.join(", ");
+}
+else {
 
+	alert("You've already guessed that letter.")}
 };
 
