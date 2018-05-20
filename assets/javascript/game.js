@@ -1,33 +1,35 @@
-var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", 
+const computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", 
 "t", "u", "v", "w", "x", "y", "z"];
 
-var wins = 0;
-var losses = 0;
-var guessesLeft = 9;
-var guessesSoFar = [ ];
+const wins = 0;
+const losses = 0;
+const guessesLeft = 9;
+const guessesSoFar = [ ];
 
+const computerTurn = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
+console.log(computerTurn);
 
-	var computerTurn = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-	 
-	  console.log(computerTurn);
-
-	  var reset = function(computerTurn) {
-		guessesLeft = 9;
-		guessesSoFar = [ ];
-
-	}
 	
 
 document.onkeyup = function(event) {
+
+	
+
+	 var reset = function(computerTurn) {
+	   guessesLeft = 9;
+	   guessesSoFar = [ ];
+	   computerTurn;
+
+   }
 
 
 
 
 	var userGuess = event.key;
-	console.log(guessesSoFar);
+	//console.log(guessesSoFar);
 	var checkLetter = guessesSoFar.indexOf(userGuess);
-	console.log(checkLetter);
+	//console.log(checkLetter);
 	if (checkLetter == -1) {
 		
 	
@@ -37,7 +39,7 @@ document.onkeyup = function(event) {
 
 
 	if (event.keyCode >= 65 && event.keyCode <= 90) {
-		console.log("no numbers");
+		
 	}
 	else {
 		alert("That's not a letter!");
@@ -58,10 +60,12 @@ document.onkeyup = function(event) {
 	}
 	if(guessesLeft == 0) {
 		losses++; 
-		alert("You are NOT Psychic! Try again!"); 
 		guessesLeft = 9; 
-		guessesSoFar.length = cdc0; 
+		guessesSoFar.length = 0; 
 		computerTurn++;
+		alert("You are NOT Psychic! Try again!"); 
+		
+	
 	}
 
 
