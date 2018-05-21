@@ -8,17 +8,22 @@ var guessesSoFar = [];
 var computerTurn = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 console.log(computerTurn);
 
-function reset(computerTurn) {
+//function to reset the game after each win or loss
+
+function reset() {
 	guessesLeft = 9;
 	guessesSoFar = [];
-	var computerTurn = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+	computerTurn = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 	console.log(computerTurn)
 	
 }
+
+//check to make sure keystroke is a letter
 	
 	document.onkeyup = function(event) {
 
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
 		if (event.keyCode >= 65 && event.keyCode <= 90) {
 			guessesSoFar
 		}
@@ -27,11 +32,13 @@ function reset(computerTurn) {
 			guessesSoFar = false;
 		}
 
+//check to make sure user isn't able to guess same letter more than once
+
 
 		var checkLetter = guessesSoFar.indexOf(userGuess);
 		if (checkLetter == -1) {
 			guessesSoFar.push(userGuess);
-			guessesLeft--
+			guessesLeft--;
 
 		}
 		else {
@@ -39,16 +46,18 @@ function reset(computerTurn) {
 		}
 
 
-		if (guessesLeft == 0) {
+
+		if (guessesLeft === 0) {
 			losses++;
 			alert("You are NOT Psychic! Try again!");
-			reset(computerTurn);
+			reset();
 		}
 
-		if (userGuess == computerTurn) {
+
+		if (userGuess === computerTurn) {
 			wins++;
 			alert("You ARE Psychic!")
-			reset(computerTurn);
+			reset();
 		}
 		
 		document.getElementById("wins").innerHTML = "Wins: " + wins;
@@ -56,9 +65,7 @@ function reset(computerTurn) {
 		document.getElementById("left").innerHTML = "Guesses Left: " + guessesLeft;
 		document.getElementById("soFar").innerHTML = "Your Guesses so far: " + guessesSoFar;
 
-
 	
-
 
 }
 
