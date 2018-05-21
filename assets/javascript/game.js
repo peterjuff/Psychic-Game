@@ -5,8 +5,8 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guessesSoFar = [];
-var computerTurn;
-
+var computerTurn = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+console.log(computerTurn);
 
 function reset(computerTurn) {
 	guessesLeft = 9;
