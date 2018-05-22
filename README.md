@@ -2,6 +2,8 @@
 
 Do you think you are psychic, but not quite sure? Take my test to find out!
 
+[Psychic-Game](https://peterjuff.github.io/Psychic-Game/)
+
 ## Instructions
 
 * The program will 'think' of a letter.
